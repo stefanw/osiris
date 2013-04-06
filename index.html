@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Osiris - Natural Language Questions for OpenSpending</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="js/chosen/chosen.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OSIRIS Natural Language Questions for OpenSpending">
+    <meta name="author" content="Stefan Wehrmeyer">
+    <script src="js/speak-js/speakClient.js" type="text/javascript" charset="utf-8" async defer></script>
+  </head>
+
+  <body>
+   <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="./index.html">Osiris</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active">
+              <form class="navbar-form pull-left" id="datasets-form">
+
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Osiris</h1>
+      <p id="dataset-loading" class="center">Loading...</p>
+      <div id="dataset-label" class="center" style="display:none">
+        <label>Choose an OpenSpending dataset<br/>
+          <span id="dataset-container">
+            <select id="datasets" class="input-xxlarge">
+              <option>Loading...</option>
+            </select>
+          </span>
+        </label>
+      </div>
+      <div class="container" id="speech-label" style="display:none">
+        <div class="row center">
+          <input class="input-xxlarge" type="text" id="question" lang="en" name="q" placeholder="" x-webkit-speech="">
+        </div>
+        <div class="row" id="thinking" style="display:none">
+          <div class="span6 offset2">
+            <h2 class="thinking">Thinking...</h2>
+          </div>
+        </div>
+        <div class="row center">
+          <h2 id="answer"></h2>
+        </div>
+        <div class="row">
+          <div class="offset2 span4">
+            <h3>Examples</h3>
+            <ul>
+              <li>What's the largest X?</li>
+              <li>Which X is the smallest in 2012 by amount?</li>
+              <li>What is the total amount of money in this dataset?</li>
+              <li>How many X are there in 2010?</li>
+            </ul>
+            <small>Suggestions for more are welcome!</small>
+          </div>
+          <div class="span3">
+            <h3>Dimensions</h3>
+            <ul id="dimensions">
+            </ul>
+          </div>
+          <div class="span3">
+            <h3>Years</h3>
+            <ul id="years">
+            </ul>
+          </div>
+        </div>
+        <div class="row center">
+          <h3>Debugging info</h3>
+          <textarea class="span6" readonly="readonly" rows="6" id="info"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="row center">
+    <small class="muted">
+      Uses <a href="http://www.openspending.org">the OpenSpending API</a>,
+      <a href="https://github.com/mattytemple/speak-js">Speak-JS</a> and Regexes.
+      Made by <a href="http://stefanwehrmeyer.com">Stefan Wehrmeyer</a>, fork <a href="https://github.com/stefanw/osiris">on GitHub</a>.
+    </small>
+  </footer>
+    <div id="audio"></div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.2/jquery.min.js"></script>
+    <script src="http://openspending.org/static/openspendingjs/lib/vendor/accounting.js"></script>
+    <script src="http://openspending.org/static/openspendingjs/lib/utils/utils.js"></script>
+    <script src="js/chosen/chosen.jquery.js"></script>
+
+    <script type="text/javascript" src="js/osiris.js"></script>
+  </body>
+</html>
